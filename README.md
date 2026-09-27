@@ -7,6 +7,11 @@ A reusable kit that takes a 2D game idea to a playable MVP with **Godot 4 + GDSc
 Its first game is **Motoconcho** — a top-down arcade game about a Dominican
 `motoconcho` (moped-taxi) driver.
 
+![Motoconcho gameplay](docs/images/gameplay.gif)
+
+*The whole game below was built with this kit — 5 milestones, one agent team, a
+`/loop`. [Full case study ↓](#example-motoconcho-built-with-this-kit)*
+
 ---
 
 ## Table of contents
@@ -24,6 +29,7 @@ Its first game is **Motoconcho** — a top-down arcade game about a Dominican
 - [The 15 agents](#the-15-agents)
 - [How a build turn works](#how-a-build-turn-works)
 - [Knowledge base](#knowledge-base)
+- [Example: Motoconcho](#example-motoconcho-built-with-this-kit)
 - [Troubleshooting](#troubleshooting)
 - [License](#license)
 
@@ -279,6 +285,55 @@ full book list, author credits, and the takedown policy.
   shutdown race on a fresh project; the second run is clean. Not a kit bug.
 - **`knowledge_search` returns nothing** — the plugin's `GODOT_KIT_ROOT` isn't
   set, or `knowledge/cards/` is empty.
+
+---
+
+## Example: Motoconcho, built with this kit
+
+**Motoconcho** is a top-down arcade game about a Dominican moped-taxi driver:
+find passengers, haggle the fare, dodge traffic and the police, make quota
+before the day ends. It was built end to end with this kit — the agents, the
+`/loop`, and the MCP tools — as the kit's first real project.
+
+| Main menu | Haggle |
+| --- | --- |
+| ![Main menu](docs/images/01-menu.png) | ![Haggle](docs/images/02-haggle.png) |
+
+| Driving the barrio | Police chase |
+| --- | --- |
+| ![Gameplay](docs/images/03-gameplay.png) | ![Chase](docs/images/04-chase.png) |
+
+| End of day | Greybox mode (F5) |
+| --- | --- |
+| ![Day end](docs/images/05-dayend.png) | ![Greybox](docs/images/06-greybox.png) |
+
+▶️ [Watch the gameplay clip](docs/images/gameplay.mp4)
+
+### How it was built
+
+Each milestone was a run of `/loop /godot-kit:kit-loop`, stopping at human
+checkpoints to playtest:
+
+| Milestone | What the agents produced | Kit tools used |
+| --- | --- | --- |
+| **0 · Base** | `project.godot`, autoloads, data classes, GUT | `project_scaffold`, `godot_import`, `godot_test` |
+| **1 · Driving** | Bike physics, camera, touch + keyboard controls | `godot_run_scene`, `godot_screenshot` |
+| **2 · Barrio** | 60×40 Tiled map, traffic (cars + buses), minimap | `tiled_export`, `greybox_tileset` |
+| **2.5 · Art** | Sprite-stack bike, cars, police, gas station, HUD | `greybox_sprite`, `pixelorama_open` |
+| **3 · Jobs** | Passengers, haggle, fares, economy, day cycle, save | `godot_test`, balance sims |
+| **4 · Risk** | Packages, heat, a patrol with a vision/chase FSM | `knowledge_search` (game AI) |
+| **5 · Close** | Audio wired, leveling, main menu, final APK | `elevenlabs_sfx/music`, `godot_export` |
+
+Along the way the kit caught real problems a solo build would miss: Tiled's
+`.tscn` export crashes on 1.12.2 (the kit reads `.tmx` directly instead), the
+economy paid out 8× too much until a headless balance simulation flagged it, and
+the ElevenLabs budget guard kept audio generation from overspending. Every rule
+number lives in a `.tres` Resource, every rule has a GUT test — the game ships
+with **2,356 passing tests**.
+
+The result runs on desktop and as an Android APK, from a main menu through a full
+work day with passengers, packages, police, leveling, and a Dominican-flavored
+soundtrack (merengue, bachata, dembow…).
 
 ---
 
