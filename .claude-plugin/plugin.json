@@ -1,0 +1,13 @@
+{
+  "name": "godot-kit",
+  "version": "0.1.0",
+  "description": "Agents, commands and an MCP server to take a 2D game idea to a playable MVP with Godot 4, GDScript, Tiled and Pixelorama.",
+  "license": "MIT",
+  "mcpServers": {
+    "godot-kit": {
+      "command": "uvx",
+      "args": ["--from", "${CLAUDE_PLUGIN_ROOT}/mcp", "godot-kit-mcp"],
+      "env": { "GODOT_KIT_ROOT": "${CLAUDE_PLUGIN_ROOT}" }
+    }
+  }
+}

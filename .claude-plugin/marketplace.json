@@ -1,0 +1,11 @@
+{
+  "name": "desarrollo-godot-kit",
+  "owner": { "name": "desarrollo-godot-kit contributors" },
+  "plugins": [
+    {
+      "name": "godot-kit",
+      "source": "./",
+      "description": "Godot 4 + GDScript MVP kit: agents in a /loop with checkpoints, plus the godot-kit MCP server."
+    }
+  ]
+}
