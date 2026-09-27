@@ -1,3 +1,13 @@
 # Textos derivados de libros: privados hasta revisarlos
 knowledge/private/
 .DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
