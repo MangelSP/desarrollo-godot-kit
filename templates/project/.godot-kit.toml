@@ -1,0 +1,13 @@
+# Godot Kit project configuration.
+# Leave [tools] paths empty to auto-detect the executables on this machine; set them
+# explicitly only if auto-detection picks the wrong install (e.g. multiple Godot versions).
+
+[tools]
+godot = ""     # e.g. "/Applications/Godot_mono.app/Contents/MacOS/Godot"
+tiled = ""     # e.g. "/Applications/Tiled.app/Contents/MacOS/Tiled" (editor only; maps regenerate from .tmx via tools/export_maps.sh)
+pixelorama = "" # e.g. "/Applications/Pixelorama.app"
+
+[elevenlabs]
+# Credits reserved as a safety margin; audio-designer should stop generating once the
+# remaining balance would dip below this, and log every generation's cost in docs/audio.md.
+reserve_credits = 1500
