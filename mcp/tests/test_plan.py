@@ -76,9 +76,11 @@ def test_in_progress_task_comes_first():
 def test_mark_changes_only_target_lines():
     new = plan.mark(PLAN, "T0.2", "done", "created data/*.tres")
     old_lines, new_lines = PLAN.splitlines(), new.splitlines()
-    assert new_lines[8] == "- [x] **T0.2 · game-designer**: Resources."
-    assert new_lines[10] == "  Done: created data/*.tres"
-    assert new_lines[:8] == old_lines[:8] and new_lines[11:] == old_lines[10:]
+    assert new_lines[7] == "- [x] **T0.2 · game-designer**: Resources."
+    assert new_lines[9] == "  Done: created data/*.tres"
+    assert new_lines[:7] == old_lines[:7]          # todo antes de T0.2 intacto
+    assert new_lines[8] == old_lines[8]            # la línea *Depends on:* no se toca
+    assert new_lines[10:] == old_lines[9:]         # el resto solo se desplaza por la nueva línea Done:
 
 
 def test_mark_replaces_existing_done_line():
