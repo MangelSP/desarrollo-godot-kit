@@ -15,7 +15,12 @@ Take a game idea from nothing to a scaffolded, playable-skeleton Godot 4 project
 5. Once approved, delegate to `game-architect` to write `docs/architecture.md` and any initial ADRs from the approved GDD.
 6. Delegate to `producer` to write `docs/mvp-plan.md`: milestones and tasks with acceptance criteria, each owned by exactly one agent, with checkpoints placed sensibly (at minimum, one near the end of the MVP).
 7. Call `mcp__godot-kit__project_scaffold` with the target directory and the intake answers to write the project template and fetch the matching GUT release.
-8. Confirm Milestone 0 (project scaffolding, GUT installed, clean `godot_import`) is marked done in the plan, then report back to the human: where the project lives, a summary of the GDD, and that `/godot-kit:kit-loop` is ready to run.
+8. **Model profile**: ask the human, once, which model profile the agents should use for this game (they can change any agent later with `/godot-kit:set-model`):
+   - **default** (recommended): orchestrator/architect/reviewer on opus·high, game-designer on opus·medium, executors on sonnet·medium, reporter on haiku·low. Balanced cost and quality.
+   - **all-opus**: every agent on opus. Highest quality, highest cost.
+   - **budget**: orchestrator on opus, architect/reviewer on sonnet, the rest on haiku. Cheapest; more errors in code and design.
+   Apply the chosen profile by running `/godot-kit:set-model` for each agent that differs from default (skip if they pick default — that's how the agents ship). Show a short table of the final assignment.
+9. Confirm Milestone 0 (project scaffolding, GUT installed, clean `godot_import`) is marked done in the plan, then report back to the human: where the project lives, a summary of the GDD, the model profile in use, and that `/godot-kit:kit-loop` is ready to run.
 
 ## Rules
 
