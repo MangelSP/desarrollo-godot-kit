@@ -1,5 +1,5 @@
-# Textos derivados de libros: privados hasta revisarlos
-knowledge/private/
+# Repo privado: las tarjetas destiladas (el cerebro del kit) SÍ se versionan.
+# NO hacer este repo público: contienen texto derivado de libros con copyright.
 .DS_Store
 
 # Python
