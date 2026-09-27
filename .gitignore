@@ -1,5 +1,5 @@
-# Repo privado: las tarjetas destiladas (el cerebro del kit) SÍ se versionan.
-# NO hacer este repo público: contienen texto derivado de libros con copyright.
+# Knowledge cards (knowledge/cards/) are the owner’s book summaries — versioned on purpose.
+# See knowledge/SOURCES.md for attribution and takedown policy.
 .DS_Store
 
 # Python
